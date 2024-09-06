@@ -41,6 +41,9 @@ jobs:
       - name: Build-X64
         run: msbuild /property:Platform=x64 /property:Configuration=Release DmdExtensions.sln
 
+      - name: Build Installer
+        run: ./build.ps1
+
       - name: Generate zip bundle
         run: |
           7z a -tzip dmdext-x64.zip .\Console\bin\x64\Release\dmdext.exe .\Console\bin\x64\Release\dmdext.log.config .\PinMameDevice\bin\x64\Release\DmdDevice.dll .\PinMameDevice\DmdDevice.ini .\PinMameDevice\bin\x64\Release\DmdDevice.log.config dmdext.log.config
