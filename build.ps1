@@ -92,14 +92,14 @@ foreach ($buildConfig in getBuildConfiguration) {
         Remove-Item $zipArchive -Force -Confirm:$false
     }
 
-    Compress-Archive -Path "Console\bin\$platform\$config\dmdext.exe" -Update -DestinationPath $zipArchive
-    Compress-Archive -Path "Console\bin\$platform\$config\dmdext.log.config"  -Update -DestinationPath $zipArchive
-    Compress-Archive -Path "Console\ProPinballSlave.bat" -Update -DestinationPath $zipArchive
-    Compress-Archive -Path "PinMameDevice\bin\$platform\$config\DmdDevice$dllSuffix.dll" -Update -DestinationPath $zipArchive
-    Compress-Archive -Path "PinMameDevice\bin\$platform\$config\DmdDevice.log.config" -Update -DestinationPath $zipArchive
-    Compress-Archive -Path "PinMameDevice\DmdDevice.ini" -Update -DestinationPath $zipArchive
-    Compress-Archive -Path "$buildDir\dmdext" -Update -DestinationPath $zipArchive
-    Compress-Archive -Path "$buildDir\Future Pinball" -Update -DestinationPath $zipArchive
+    # Compress-Archive -Path "Console\bin\$platform\$config\dmdext.exe" -Update -DestinationPath $zipArchive
+    # Compress-Archive -Path "Console\bin\$platform\$config\dmdext.log.config"  -Update -DestinationPath $zipArchive
+    # Compress-Archive -Path "Console\ProPinballSlave.bat" -Update -DestinationPath $zipArchive
+    # Compress-Archive -Path "PinMameDevice\bin\$platform\$config\DmdDevice$dllSuffix.dll" -Update -DestinationPath $zipArchive
+    # Compress-Archive -Path "PinMameDevice\bin\$platform\$config\DmdDevice.log.config" -Update -DestinationPath $zipArchive
+    # Compress-Archive -Path "PinMameDevice\DmdDevice.ini" -Update -DestinationPath $zipArchive
+    # Compress-Archive -Path "$buildDir\dmdext" -Update -DestinationPath $zipArchive
+    # Compress-Archive -Path "$buildDir\Future Pinball" -Update -DestinationPath $zipArchive
 
     Move-Item -Path "Installer\Builds\dmdext-v$version-$platform.msi" -Destination "$releaseDir\dmdext-v$version-$platform$suffix.msi"
     if ($LastExitCode -ne 0) {
