@@ -34,12 +34,12 @@ jobs:
         run: .\DllExport -action Restore -sln-file DmdExtensions.sln
 
       # Build artifacts 
-      - name: Build-X86
-        run: msbuild /property:Platform=x86 /property:Configuration=Release DmdExtensions.sln
+      # - name: Build-X86
+        # run: msbuild /property:Platform=x86 /property:Configuration=Release DmdExtensions.sln
 
       # Build artifacts 
-      - name: Build-X64
-        run: msbuild /property:Platform=x64 /property:Configuration=Release DmdExtensions.sln
+      # - name: Build-X64
+        # run: msbuild /property:Platform=x64 /property:Configuration=Release DmdExtensions.sln
 
       - name: Build Installer
         run: ./build.ps1

@@ -41,7 +41,7 @@ function getVersion
 
 
 $version = getVersion
-$msbuild = "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe"
+$msbuild = "C:\Program Files\Microsoft Visual Studio\2022\Entpriseer\MSBuild\Current\Bin\amd64\MSBuild.exe"
 Write-Host "Building DMD Extensions version $version..."
 foreach ($buildConfig in getBuildConfiguration) {
 
@@ -60,7 +60,7 @@ foreach ($buildConfig in getBuildConfiguration) {
 
     Write-Host "Building $config for $platform"
 
-    & $msbuild .\DmdExtensions.sln -t:rebuild /p:Configuration="$config" /p:Platform=$platform
+    & msbuild .\DmdExtensions.sln -t:rebuild /p:Configuration="$config" /p:Platform=$platform
 
     if ($LastExitCode -ne 0) {
         Write-Host "Build of $config for $platform failed."
