@@ -102,9 +102,8 @@ foreach ($buildConfig in getBuildConfiguration) {
     # Compress-Archive -Path "$buildDir\Future Pinball" -Update -DestinationPath $zipArchive
 
     Get-ChildItem -Force -LiteralPath "$releaseDir"
-    Move-Item -Path "Installer\Builds\dmdext-v$version-$platform.msi" -Destination "$releaseDir\dmdext-v$version-$platform$suffix.msi"
-    if ($LastExitCode -ne 0) {
-        Exit
-    }
-
+    # Move-Item -Path "Installer\Builds\dmdext-v$version-$platform.msi" -Destination "$releaseDir\dmdext-v$version-$platform$suffix.msi"
+    # if ($LastExitCode -ne 0) {
+    #     Exit
+    # }
 }
