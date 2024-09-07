@@ -48,7 +48,10 @@ jobs:
         run: Get-ChildItem -Recurse -Filter "*.msi"
 
       - name: Run ls
-        run: ls .\Console\bin\x64\Release\
+        run: ls -R .\Console\bin\x64\Release\
+
+      - name: Run ls
+        run: ls -R .
 
       - name: Generate zip bundle
         run: |
