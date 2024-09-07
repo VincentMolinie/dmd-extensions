@@ -40,7 +40,7 @@ function getVersion
 }
 
 
-$version = getVersion
+$version = "2.2.3"
 $msbuild = "C:\Program Files\Microsoft Visual Studio\2022\Entpriseer\MSBuild\Current\Bin\amd64\MSBuild.exe"
 Write-Host "Building DMD Extensions version $version..."
 foreach ($buildConfig in getBuildConfiguration) {
