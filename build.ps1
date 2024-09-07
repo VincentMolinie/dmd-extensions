@@ -46,7 +46,7 @@ Write-Host "Building DMD Extensions version $version..."
 foreach ($buildConfig in getBuildConfiguration) {
 
     $config = $buildConfig.Item1
-    $platform = $buildConfig.Item2
+    $platform = "x64"
     $n = $config -split " - "
     if ($n[0] -ne "Release") {
         continue
@@ -101,6 +101,7 @@ foreach ($buildConfig in getBuildConfiguration) {
     # Compress-Archive -Path "$buildDir\dmdext" -Update -DestinationPath $zipArchive
     # Compress-Archive -Path "$buildDir\Future Pinball" -Update -DestinationPath $zipArchive
 
+    Get-ChildItem -Force -LiteralPath "$releaseDir"
     Move-Item -Path "Installer\Builds\dmdext-v$version-$platform.msi" -Destination "$releaseDir\dmdext-v$version-$platform$suffix.msi"
     if ($LastExitCode -ne 0) {
         Exit

@@ -42,12 +42,16 @@ jobs:
         # run: msbuild /property:Platform=x64 /property:Configuration=Release DmdExtensions.sln
 
       - name: Build Installer
-        run: ./build.ps1
+        run: ./build.ps1 /property:Platform=x64 /property:Configuration=Release
+
+      - name: Run ls
+        run: ls .\Console\bin\x64\Release\
 
       - name: Generate zip bundle
         run: |
           7z a -tzip dmdext-x64.zip .\Console\bin\x64\Release\dmdext.exe .\Console\bin\x64\Release\dmdext.log.config .\PinMameDevice\bin\x64\Release\DmdDevice.dll .\PinMameDevice\DmdDevice.ini .\PinMameDevice\bin\x64\Release\DmdDevice.log.config dmdext.log.config
           7z a -tzip dmdext-x86.zip .\Console\bin\x86\Release\dmdext.exe .\Console\bin\x86\Release\dmdext.log.config .\PinMameDevice\bin\x86\Release\DmdDevice.dll .\PinMameDevice\DmdDevice.ini .\PinMameDevice\bin\x86\Release\DmdDevice.log.config
+          copy _release/*.msi installer.msi
          
       # Upload ZIP as artifacts from GitHub Actions
       - name: Upload artifacts
@@ -56,5 +60,7 @@ jobs:
           name: dmdext-snapshot
           path: |
             dmdext-x64.zip
-            dmdext-x86.zip 
+            dmdext-x86.zip
+            installer.msi 
+
           retention-days: 90
